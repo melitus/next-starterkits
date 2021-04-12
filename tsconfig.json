@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "baseUrl": "./", /* Base directory to resolve non-absolute module names. */
+ "paths": {
+  "@element/*": [
+    "components/elements/*"
+  ],
+  "@layout/*": [
+    "components/layouts/*"
+  ],
+  "@module/*": [
+    "components/modules/*"
+  ],
+  "@template/*": [
+    "components/templates/*"
+  ],
+  "@constant/*": [
+    "constants/*"
+  ],
+  "@context/*": [
+    "context/*"
+  ],
+  "@hook/*": [
+    "hooks/*"
+  ],
+  "@util/*": [
+    "utils/*"
+  ]
+},
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

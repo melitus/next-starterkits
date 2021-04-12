@@ -16,7 +16,27 @@ interface MyAppProps extends AppProps {
   currentUser: User | null;
 }
 
-const MyApp = ({ Component, pageProps, currentUser, router }: MyAppProps): JSX.Element => {
+interface IProviders {
+    components: React.JSXElementConstructor<React.PropsWithChildren<any>>[];
+    children: React.ReactNode;
+}
+
+const Providers = ({ components, children }: IProviders) => (
+    <>
+        {components.reduceRight((acc, Comp) => <Comp>{acc}</Comp>, children)}
+    </>
+);
+const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
+  return (
+        <Providers components={[ CheckoutDataProvider, StorageProvider ]}>
+            <Component {...pageProps} />
+        </Providers>
+
+  );
+};
+
+
+const MyApp = ({ Component, pageProps, currentUser, router }: IProviders): JSX.Element => {
   if (router.pathname.startsWith('/admin')) {
     return (
       <StoreProvider currentUser={currentUser}>

@@ -1,14 +1,68 @@
-import {DefaultSeo} from 'next-seo';
 import React from 'react';
-import seo from '../seo.config';
-import {ProvideAuth} from '../utils/auth';
-import {ProvideSearch} from '../utils/search';
+import App, { AppProps, AppContext } from 'next/app';
+import {DefaultSeo} from 'next-seo';
 
-export default ({Component, pageProps}) => (
-    <ProvideAuth>
-                <ProvideSearch>
-                    <DefaultSeo {...seo} />
-                    <Component {...pageProps} />
-                </ProvideSearch>
-    </ProvideAuth>
-);
+import { StoreProvider } from 'contexts';
+import { parseCookies, destroyCookie } from 'nookies';
+import { checkProtectedRoutes } from 'utils/auth';
+import { AuthService } from 'services/authService';
+import MainLayout from 'components/layouts/main-layout';
+import AdminLayout from 'components/layouts/admin-layout';
+import { User } from 'types';
+import 'styles/global.css';
+import seo from '../seo.config';
+
+interface MyAppProps extends AppProps {
+  currentUser: User | null;
+}
+
+const MyApp = ({ Component, pageProps, currentUser, router }: MyAppProps): JSX.Element => {
+  if (router.pathname.startsWith('/admin')) {
+    return (
+      <StoreProvider currentUser={currentUser}>
+        <AdminLayout>
+         <DefaultSeo {...seo} />
+          <Component {...pageProps} />
+        </AdminLayout>
+      </StoreProvider>
+    );
+  }
+
+  return (
+    <StoreProvider currentUser={currentUser}>
+      <MainLayout>
+        <DefaultSeo {...seo} />
+        <Component {...pageProps} />
+      </MainLayout>
+    </StoreProvider>
+  );
+};
+
+MyApp.getInitialProps = async (appContext: AppContext) => {
+  const appProps = await App.getInitialProps(appContext);
+  const { token } = parseCookies(appContext.ctx);
+
+  const isServer = appContext.ctx.req;
+  const ctx = appContext.ctx;
+
+  if (!token) {
+    checkProtectedRoutes(ctx);
+    return { ...appProps };
+  }
+
+  let currentUser: User | null = null;
+
+  if (isServer) {
+    try {
+      const { user } = await AuthService.getMe(token);
+      currentUser = user;
+    } catch (error) {
+      destroyCookie(ctx, 'token');
+      checkProtectedRoutes(ctx);
+    }
+  }
+
+  return { ...appProps, currentUser };
+};
+
+export default MyApp;

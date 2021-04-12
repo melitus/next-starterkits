@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react'
 
 import Header from '../Header'
-import Head from './Head'
+import Head from '../Head'
 import {ILayout} from './Layout'
 import {Footer} from '../Footer'
 

@@ -30,6 +30,8 @@ module.exports = {
         'react/react-in-jsx-scope': 'off', // No need to import React with Next.js
         'jsx-a11y/anchor-is-valid': 'off', // This rule is not compatible with how Next.js's <Link />
         '@typescript-eslint/no-unused-vars': ['error'],
+         "react-hooks/rules-of-hooks": "error",
+         "react-hooks/exhaustive-deps": "warn",
         '@typescript-eslint/explicit-function-return-type': [
           // I suggest this setting for requiring return types on functions only where usefull
           'warn',

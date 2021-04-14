@@ -48,7 +48,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx", "../Nextsprojects/context/ccc.ts"
   ],
   "exclude": [
     "node_modules"

@@ -1,7 +1,5 @@
 import React from 'react';
 import App, { AppProps, AppContext } from 'next/app';
-import {DefaultSeo} from 'next-seo';
-
 import { StoreProvider } from 'contexts';
 import { parseCookies, destroyCookie } from 'nookies';
 import { checkProtectedRoutes } from 'utils/auth';
@@ -10,38 +8,16 @@ import MainLayout from 'components/layouts/main-layout';
 import AdminLayout from 'components/layouts/admin-layout';
 import { User } from 'types';
 import 'styles/global.css';
-import seo from '../seo.config';
 
 interface MyAppProps extends AppProps {
   currentUser: User | null;
 }
 
-interface IProviders {
-    components: React.JSXElementConstructor<React.PropsWithChildren<any>>[];
-    children: React.ReactNode;
-}
-
-const Providers = ({ components, children }: IProviders) => (
-    <>
-        {components.reduceRight((acc, Comp) => <Comp>{acc}</Comp>, children)}
-    </>
-);
-const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
-  return (
-        <Providers components={[ CheckoutDataProvider, StorageProvider ]}>
-            <Component {...pageProps} />
-        </Providers>
-
-  );
-};
-
-
-const MyApp = ({ Component, pageProps, currentUser, router }: IProviders): JSX.Element => {
+const MyApp = ({ Component, pageProps, currentUser, router }: MyAppProps): JSX.Element => {
   if (router.pathname.startsWith('/admin')) {
     return (
       <StoreProvider currentUser={currentUser}>
         <AdminLayout>
-         <DefaultSeo {...seo} />
           <Component {...pageProps} />
         </AdminLayout>
       </StoreProvider>
@@ -51,7 +27,6 @@ const MyApp = ({ Component, pageProps, currentUser, router }: IProviders): JSX.E
   return (
     <StoreProvider currentUser={currentUser}>
       <MainLayout>
-        <DefaultSeo {...seo} />
         <Component {...pageProps} />
       </MainLayout>
     </StoreProvider>

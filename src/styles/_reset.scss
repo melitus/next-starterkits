@@ -1,0 +1,96 @@
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Roboto;
+  font-size: 16px;
+  color: $gray-dark;
+  background: $gray-light-bg;
+}
+* {
+  box-sizing: border-box;
+}
+::selection {
+  background: $primary-green;
+  color: $white;
+}
+::-moz-selection {
+  background: $primary-green;
+  color: $white;
+  text-shadow: none;
+}
+// Number Input Styles
+input[type="number"] {
+  -moz-appearance: textfield;
+  margin: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+// Searchbox Styles
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+strong {
+  font-weight: 700;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+
+button {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+input,
+select {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+form {
+  margin: 0;
+}

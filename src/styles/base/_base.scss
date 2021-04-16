@@ -1,0 +1,179 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  @include on-event {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+
+:root {
+    // Global
+    --shadow: 0 4px 9px 0 rgba(0, 0, 0, .1);
+    --border: 1px solid rgba(0, 0, 0, .1);
+    --border-radius: 20px;
+    --content-max-width: 1100px;
+    --content-padding: 1rem;
+
+    --button-padding: 14px 22px;
+    --button-radius: 5px;
+    --button-font-size: 16px;
+    --button-font-weight: 500;
+
+    --icon-size: 30px;
+}
+
+html {
+    --background-color: #f5f5f7;
+
+    --highlight-color: #007bff;
+
+    --primary-block-color: #fff;
+    --secondary-block-color: #fff;
+
+    --primary-text-color: #000;
+    --secondary-text-color: #3a3a3c;
+
+    --button-background: #e5e5ea;
+    --button-hover: #e1e1e6;
+
+    &.dark-mode {
+        --background-color: #1c1c1e;
+
+        --highlight-color: #0a84ff;
+
+        --primary-block-color: #2c2c2e;
+        --secondary-block-color: #8e8e93;
+
+        --primary-text-color: #fff;
+        --secondary-text-color: #f2f2f7;
+
+        --button-background: #3a3a3a;
+        --button-hover: #3b3b3d;
+    }
+
+    // Header
+    --header-height: calc(
+        var(--header-navigation-height)
+        + var(--offline-notification-height)
+        + var(--header-spacing)
+        + env(safe-area-inset-top)
+    );
+    --header-spacing: 0px;
+    --header-navigation-height: 70px;
+    --status-bar-highlight-color: #ef4444;
+    --offline-notification-height: 0px;
+
+    &.offline {
+        --offline-notification-height: 30px;
+    }
+
+    @include media.after-mobile { --header-spacing: 10px; }
+
+    // Bottom header items shown on mobile
+    --header-items-height: calc(60px + env(safe-area-inset-bottom));
+    @include media.after-mobile { --header-items-height: 0px; }
+
+    // Footer
+    --footer-content-height: 20px;
+    --footer-height: calc(
+        var(--footer-content-height)
+        + 2 * var(--content-padding)
+    );
+    @include media.mobile { --footer-content-height: 40px; }
+
+    // Sidebar
+    --sidebar-width: 300px;
+}
+
+body {
+    font-size: 12px;
+    margin: 0;
+    background-color: var(--primary-block-color);
+    color: var(--primary-text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @include font-family("Raleway", sans-serif);
+}
+
+#__next {
+    background-color: var(--background-color);
+}
+
+main {
+    min-height: calc(
+        100vh
+        - var(--header-items-height)
+        - var(--header-height)
+        - var(--footer-height)
+        - 2 * var(--content-padding)
+    );
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding:
+        calc(var(--header-height) + var(--content-padding))
+        var(--content-padding)
+        var(--content-padding)
+        var(--content-padding);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-text-color);
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+    outline: 0;
+    outline-color: initial;
+    outline-style: initial;
+    outline-width: 0px;
+    border: 0;
+    border-color: initial;
+    border-style: initial;
+    border-width: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+}

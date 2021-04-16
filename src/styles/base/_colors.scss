@@ -47,3 +47,45 @@ $button-text-color: #fafafa;
 
 $badge-background: #454f59;
 $badge-color: #f5f5f5;
+
+$darkleather: #533810;
+$brown: #584e4a;
+$error: #cc0000;
+$lightgrey: #cecece;
+$darkgrey: #a19898;
+$softyellow: #e1d7b3;
+$checkedyellow: #d19e4e;
+
+$color-background: #f4f4f4;
+$color-text: #222222;
+$color-purple: #3c1143;
+$color-pink: #c25178;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-text-gray: #555555;
+$color-border-gray: #999999;
+$color-red: #bc3232;
+$color-red-darker: #a02200;
+$color-link: $color-text;
+$color-link-hover: $color-pink;
+
+$break-xsmall: 370px;
+$break-small: 600px;
+$max-width: 960px;
+
+$medium-screen: 'only screen and (min-width : #{$break-xsmall})';
+$bigger-screen: 'only screen and (min-width : #{$break-small})';
+
+/* Colors */
+$white: #fff;
+$black: rgba(0, 0, 0, 0.85);
+
+$grayLighter: #F7F7F8;
+$grayLight: #ebecf0;
+$gray: #808B97;
+$grayDarker: #2E2E2E;
+$red: #EC1224;
+
+$sm-width: 768px;
+$md-width: 992px;
+$lg-width: 1200px;

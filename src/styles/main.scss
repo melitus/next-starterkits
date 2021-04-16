@@ -5,3 +5,78 @@
 @import "base/_border.scss";
 @import "base/_transition.scss";
 @import "base/_boxshadow.scss";
+
+
+//
+@import
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins',
+  'abstracts/placeholders';
+
+@import 'themes/theme';
+
+@import 'vendors/bootstrap';
+
+@import
+  'base/reset',
+  'base/typography';
+
+@import
+  'layout/header',
+  'layout/footer';
+
+ @import
+  'components/checkbox',
+  'components/button',
+  'components/icon',
+  'components/input',
+  'components/card',
+  'components/spinner',
+  'components/skeleton';
+
+@import
+  'pages/common',
+  'pages/signin-callback-page',
+  'pages/detail-page',
+  'pages/home-page',
+  'pages/not-found-page';
+
+
+
+  //
+  @charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins';
+
+// 2. Vendors
+@import
+  'vendor/normalize';
+
+// 3. Base stuff
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/helpers';
+
+// 4. Layout-related sections
+@import
+  'layout/header',
+  'layout/footer';
+
+// 5. Components
+@import
+  'components/button';
+
+// 6. Page-specific styles
+@import
+  'pages/home';
+
+// 7. Themes
+@import
+  'themes/default';

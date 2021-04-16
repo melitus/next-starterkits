@@ -47,8 +47,12 @@
 },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx", "../Nextsprojects/context/ccc.ts"
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "pages/**/*.ts",
+    "pages/**/*.tsx"
   ],
   "exclude": [
     "node_modules"

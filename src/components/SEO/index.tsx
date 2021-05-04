@@ -1,17 +1,33 @@
 import Head from 'next/head'
 
-import {IHead} from './Head'
+import {ISEO} from './SEO'
 
-export default function Head(props: IHead.IProps):React.ReactElement {
+export default function Head(props: ISEO.IProps):React.ReactElement {
   const date = new Date()
   const currentYear = date.getFullYear()
 
   return (
     <Head>
-      <title>{props.title}</title>
-      <link rel="icon" type="image/png" href="/favicon.png" />
-      <meta name="description" content={props.description} />
-      <meta
+       <title>{title}</title>
+        <meta charSet="utf-8" />
+        <meta name="description" content={props.description} />
+        <meta property="og:title" content={props.title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={props.description} />
+        {props.url ? <meta property="og:url" content={props.url} /> : ""}
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image" content={props.image + "?w=1000"} />
+        <meta property="og:image:width" content="1000" />
+        <meta property="og:image" content={props.image + "?w=500"} />
+        <meta property="og:image:width" content="500" />
+        <meta property="og:image:height" content="500" />
+      <meta property="og:image:alt" content="C-DOC Logo" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@purposeinvest" />
+        <meta name="twitter:title" content={props.title} />
+        <meta name="twitter:description" content={props.description} />
+        <meta name="twitter:image" content={props.image} />
+       <meta
         name="robots"
         content={props.robots === false ? 'noindex, nofollow' : 'index, follow'}
       />
@@ -22,12 +38,6 @@ export default function Head(props: IHead.IProps):React.ReactElement {
       <meta name="author" content="Aroh" />
       <meta name="copyright" content={`santino © ${currentYear}`} />
       <meta name="theme-color" content="#ffffff" />
-
-      {/* Open Graph */}
-      <meta property="og:site_name" content="C-DOC" />
-      <meta property="og:title" content={props.title} />
-      <meta property="og:description" content={props.description} />
-      <meta property="og:type" content="Website" />
       {props.canonical ? (
         <meta
           property="og:url"
@@ -39,10 +49,6 @@ export default function Head(props: IHead.IProps):React.ReactElement {
         name="image"
         content="https://localhost/social.png"
       />
-      <meta property="og:image:type" content="image/png" />
-      <meta property="og:image:width" content="500" />
-      <meta property="og:image:height" content="500" />
-      <meta property="og:image:alt" content="C-DOC Logo" />
     </Head>
   )
 }

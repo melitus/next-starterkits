@@ -51,7 +51,6 @@ $breakpoints: (
 ///   $base-url: 'http://cdn.example.com/assets/';
 $base-url: '/assets/' !default;
 
-
 $color-background: #f4f4f4;
 $color-text: #222222;
 $color-purple: #3c1143;
@@ -71,7 +70,6 @@ $max-width: 960px;
 
 $medium-screen: 'only screen and (min-width : #{$break-xsmall})';
 $bigger-screen: 'only screen and (min-width : #{$break-small})';
-
 
 // COLORS
 $color-primary: #55c57a;
@@ -94,10 +92,8 @@ $color-grey-dark-3: #333;
 $color-white: #fff;
 $color-black: #000;
 
-
 // FONT
 $default-font-size: 1.6rem;
-
 
 // GRID
 $grid-width: 114rem;
@@ -107,22 +103,74 @@ $gutter-horizontal: 6rem;
 
 // COLOR VARIABLES
 $color-primary: #c69963;
-$color-primary-dark: #B28451;
+$color-primary-dark: #b28451;
 
 $color-secondary: #101d2c;
 
 $color-grey-light-1: #f9f7f6;
 $color-grey-light-2: #aaa;
 
-$color-grey-dark-1: #54483A;
-$color-grey-dark-2: #6D5D4B;
+$color-grey-dark-1: #54483a;
+$color-grey-dark-2: #6d5d4b;
 
 // FONT VARIABLES
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
 // RESPONSIVE BREAKPOINTS
-$bp-largest: 75em;   // 1200px
-$bp-large: 62.5em;   // 1000px
-$bp-medium: 50em;    // 800px;
-$bp-small: 37.5em;    // 600px;
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px;
+$bp-small: 37.5em; // 600px;
+
+// Colors
+$white-color: #fff;
+$black-color: #000;
+$cerulean-color: #04a9f4;
+$gray-color: #8b8b8b;
+$emperor-color: #4f4f4f;
+$fernFrond-color: #676121;
+$loblolly-color: #c6ccd2;
+$java-color: #18cfab;
+$azure-color: #3162a2;
+$azureRadiance-color: #0988ea;
+$screamingGreen-color: #46ee6b; // mostly to indicate the state of the connected user(online)
+$denim-color: #0d76c6;
+$mystic-color: #e4eaf0;
+$mysticLighter-color: #e9eff1;
+$limedSpruce-color: #313b44;
+$shark-color: #1e2327; //#22282d;
+$athensGray-color: #f9fafb;
+$paleSky-color: #6e7882;
+$twilightBlue-color: #f3fcff;
+$geraldine-color: #f88688;
+$baliHai-color: #8b9daf;
+$lightDark-custom-color: rgba(0, 0, 0, 0.15);
+$goldColor: #ffd700;
+$nepal-color: #93a3bc;
+$sidecar-color: #f6f1bd;
+
+$spinner-height: 30px;
+$spinner-width: 30px;
+
+// Header
+$header-height: 45px;
+$avatar-width: 35px;
+$avatar-height: 35px;
+$avatar-state-width: 8px;
+$avatar-state-height: 8px;
+$profile-menu-width: 140px;
+
+// Nav Bar
+$nav-bar-link-width: 100%;
+$nav-bar-link-height: 65px;
+$nav-bar-link-size: 30px;
+$nav-bar-marker-size: 10px;
+
+// Chatbox
+$chatbox-padding-top: 10px;
+$chatbox-padding-left: 20px;
+$chatbox-title-font-size: 18px;
+$chatbox-avatar-size: 35px;
+$chatbox-header-height: 45px;
+$chatbox-body-height: 470px;

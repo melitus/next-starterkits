@@ -1,4 +1,4 @@
-declare namespace IHead {
+declare namespace ISEO {
   export interface IProps {
     title: string
     description: string
@@ -7,4 +7,4 @@ declare namespace IHead {
   }
 }
 
-export {IHead}
+export {ISEO}
